@@ -4,8 +4,10 @@ import com.project.spring.domain.gallery.Gallery;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class GallerySaveRequestDto {
     private String imageName;
