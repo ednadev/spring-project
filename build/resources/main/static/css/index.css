@@ -1,0 +1,8 @@
+#gallery {
+    display: flex;
+    flex-flow: wrap;
+    padding: 10px;
+}
+#gallery img {
+    padding: 5px;
+}

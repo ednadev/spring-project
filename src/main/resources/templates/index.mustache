@@ -1,6 +1,6 @@
 {{>layout/header}}
 
-<h1>스프링 부트로 시작하는 웹 서비스 Ver.2</h1>
+<h1>스프링 부트로 시작하는 웹 서비스</h1>
 <div class="col-md-12">
     <div class="row">
         <div class="col-md-6">
@@ -22,7 +22,7 @@
             {{#posts}}
                 <tr>
                     <td>{{id}}</td>
-                    <td>{{title}}</td>
+                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
                     <td>{{author}}</td>
                     <td>{{modifiedDate}}</td>
                 </tr>
@@ -32,6 +32,11 @@
 </div>
 
 <h1>이미지 갤러리</h1>
-<input id="file" type="file" name="uploadFile" enctype="multipart/form-data" accept=".gif, .jpg, .png">
+<p><input id="file" type="file" name="uploadFile" enctype="multipart/form-data" accept=".gif, .jpg, .png"></p>
 
+<div id="gallery">
+{{#gallery}}
+    <img src="/image/{{imageName}}" height="300" onclick="openChild({{id}})"/>
+{{/gallery}}
+</div>
 {{>layout/footer}}

@@ -1,21 +1,36 @@
 package com.project.spring.web;
 
+import com.project.spring.service.gallery.GalleryService;
 import com.project.spring.service.posts.PostsService;
+import com.project.spring.web.dto.GalleryResponseDto;
+import com.project.spring.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.swing.*;
 
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
+    private final GalleryService galleryService;
 
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
+        model.addAttribute("gallery", galleryService.findAllDesc());
         return "index";
+    }
+
+    @GetMapping("/gallery/{id}")
+    public String galleryDetail(@PathVariable Long id, Model model) {
+        GalleryResponseDto dto = galleryService.findById(id);
+        model.addAttribute("gallery", dto);
+        return "popup";
     }
 
     @GetMapping("/posts/save")
@@ -26,5 +41,12 @@ public class IndexController {
     @GetMapping("/file/upload")
     public String fileUpload() {
         return "file-upload";
+    }
+
+    @GetMapping("/posts/update/{id}")
+    public String postsUpdate(@PathVariable Long id, Model model) {
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("post", dto);
+        return "posts-update";
     }
 }

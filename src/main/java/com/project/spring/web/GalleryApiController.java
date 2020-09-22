@@ -3,14 +3,15 @@ package com.project.spring.web;
 import com.project.spring.service.gallery.GalleryService;
 import com.project.spring.web.dto.GalleryResponseDto;
 import com.project.spring.web.dto.GallerySaveRequestDto;
+import com.project.spring.web.dto.PostsResponseDto;
 import com.project.spring.web.dto.UploadData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 
 @RequiredArgsConstructor
@@ -36,15 +37,7 @@ public class GalleryApiController {
 
         requestDto.setUserName("ednadev@naver.com");
 
-        System.out.println(galleryService.save(requestDto));
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + galleryService.save(requestDto));
         return new ResponseEntity(HttpStatus.OK);
     }
-
-    @GetMapping("gallery/{id}")
-    public GalleryResponseDto findById(@PathVariable Long id) {
-        return galleryService.findById(id);
-    }
-
-
-
 }
