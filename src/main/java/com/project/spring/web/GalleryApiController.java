@@ -1,15 +1,15 @@
 package com.project.spring.web;
 
 import com.project.spring.service.gallery.GalleryService;
-import com.project.spring.web.dto.GalleryResponseDto;
 import com.project.spring.web.dto.GallerySaveRequestDto;
-import com.project.spring.web.dto.PostsResponseDto;
 import com.project.spring.web.dto.UploadData;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -35,9 +35,8 @@ public class GalleryApiController {
         File copyFile = new File(path + mFile.getOriginalFilename());
         mFile.transferTo(copyFile);
 
-        requestDto.setUserName("ednadev@naver.com");
-
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + galleryService.save(requestDto));
+        requestDto.setUserName(upload.getUserName());
+        galleryService.save(requestDto);
         return new ResponseEntity(HttpStatus.OK);
     }
 }
