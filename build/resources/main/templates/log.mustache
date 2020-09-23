@@ -1,0 +1,20 @@
+{{>layout/header}}
+
+<table class="table">
+    <thead class="thead-strong">
+        <tr>
+            <th>번호</th>
+            <th>로그기록</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#log}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{userName}} 님이 {{logDate}} {{logCheck}} 하셨습니다.</td>
+            </tr>
+        {{/log}}
+    </tbody>
+</table>
+
+{{>layout/footer}}

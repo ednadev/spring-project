@@ -1,14 +1,12 @@
 package com.project.spring.web.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
+@Getter
+@Setter
 public class UploadData {
     private MultipartFile uploadFile;
-
-    public MultipartFile getUploadFile() {
-        return uploadFile;
-    }
-    public void setUploadFile(MultipartFile uploadFile) {
-        this.uploadFile = uploadFile;
-    }
+    private String userName;
 }

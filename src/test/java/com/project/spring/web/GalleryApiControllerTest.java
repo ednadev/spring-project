@@ -46,7 +46,7 @@ public class GalleryApiControllerTest {
                 .userName("userName")
                 .build();
 
-        String url = "http://localhost:" + port + "/api/gallery";
+        String url = "http://localhost:" + port + "/gallery";
 
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
 

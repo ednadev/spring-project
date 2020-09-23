@@ -1,3 +1,18 @@
+h1 {
+    margin: 20px;
+}
+
+#button-list {
+    padding: 10px 20px;
+}
+#button-list label {
+    margin: 0;
+    cursor: pointer;
+}
+#file {
+    display: none;
+}
+
 #gallery {
     display: flex;
     flex-flow: wrap;
@@ -5,4 +20,9 @@
 }
 #gallery img {
     padding: 5px;
+    cursor: pointer;
+}
+
+#popup {
+    padding: 20px;
 }
